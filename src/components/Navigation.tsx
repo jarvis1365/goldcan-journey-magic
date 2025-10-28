@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const links = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "MBA in Bangalore", href: "#mba" },
-    { name: "Education in Bangalore", href: "#education" },
-    { name: "MS Abroad", href: "#abroad" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "MBA in Bangalore", href: "/mba-bangalore" },
+    { name: "Education in Bangalore", href: "/education-bangalore" },
+    { name: "MS Abroad", href: "/ms-abroad" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -27,17 +29,21 @@ export const Navigation = () => {
 
           <div className="hidden md:flex items-center gap-8">
             {links.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
-                className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left after:transition-transform after:duration-300"
+                to={link.href}
+                className={`text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left after:transition-transform after:duration-300 ${
+                  location.pathname === link.href ? 'text-primary font-semibold' : ''
+                }`}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
-            <Button className="transition-all duration-300 hover:shadow-lg hover:scale-105">
-              Apply Now
-            </Button>
+            <Link to="/apply">
+              <Button className="transition-all duration-300 hover:shadow-lg hover:scale-105 bg-gradient-to-r from-primary to-accent">
+                Apply Now
+              </Button>
+            </Link>
           </div>
 
           <button
@@ -51,16 +57,18 @@ export const Navigation = () => {
         {isOpen && (
           <div className="md:hidden py-4 space-y-4 animate-slide-in-up">
             {links.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 className="block py-2 text-foreground/80 hover:text-primary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
-            <Button className="w-full">Apply Now</Button>
+            <Link to="/apply" onClick={() => setIsOpen(false)}>
+              <Button className="w-full bg-gradient-to-r from-primary to-accent">Apply Now</Button>
+            </Link>
           </div>
         )}
       </div>

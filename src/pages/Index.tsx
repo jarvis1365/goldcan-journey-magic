@@ -1,12 +1,14 @@
 import { Navigation } from "@/components/Navigation";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { Hero } from "@/components/Hero";
-import { About } from "@/components/About";
+import { Statistics } from "@/components/Statistics";
+import { FeaturesSection } from "@/components/FeaturesSection";
 import { Programs } from "@/components/Programs";
-import { Timeline } from "@/components/Timeline";
-import { VideoModal } from "@/components/VideoModal";
+import { Testimonials } from "@/components/Testimonials";
 import { RegistrationForm } from "@/components/RegistrationForm";
 import { Footer } from "@/components/Footer";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { FloatingApplyButton } from "@/components/FloatingApplyButton";
 
 const Index = () => {
   return (
@@ -15,13 +17,15 @@ const Index = () => {
       <Navigation />
       <main className="relative z-10 pt-20">
         <Hero />
-        <About />
+        <Statistics />
+        <FeaturesSection />
         <Programs />
-        <Timeline />
-        <VideoModal />
+        <Testimonials />
         <RegistrationForm />
       </main>
       <Footer />
+      <WhatsAppButton />
+      <FloatingApplyButton />
     </div>
   );
 };
