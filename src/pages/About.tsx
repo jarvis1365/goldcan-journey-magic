@@ -50,84 +50,135 @@ const About = () => {
         </section>
 
         {/* Story Section */}
-        <section className="py-20">
+        <section className="py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
           <div className="container px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Our Story</h2>
-              <div className="space-y-4 text-lg text-muted-foreground">
-                <p>
-                  GoldCan Education was founded in 2012 with a singular mission: to make quality education accessible to every student in India and abroad. What started as a small counseling center in Bangalore has grown into one of India's most trusted education consultancies, helping thousands of students achieve their academic and career goals.
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center bg-gradient-to-r from-primary via-purple-600 to-accent bg-clip-text text-transparent">Our Story</h2>
+              <div className="space-y-4 text-lg">
+                <p className="leading-relaxed">
+                  <span className="text-primary font-semibold">GoldCan Education</span> was founded in <span className="text-accent font-semibold">2012</span> with a singular mission: to make quality education accessible to every student in India and abroad. What started as a small counseling center in Bangalore has grown into one of India's most trusted education consultancies, helping thousands of students achieve their academic and career goals.
                 </p>
-                <p>
-                  Over the past decade, we have built strong partnerships with over 25 top universities across India and internationally. Our comprehensive approach combines personalized counseling, career guidance, and end-to-end support—from program selection to final admission and beyond.
+                <p className="leading-relaxed text-muted-foreground">
+                  Over the past decade, we have built strong partnerships with over <span className="text-primary font-semibold">25 top universities</span> across India and internationally. Our comprehensive approach combines personalized counseling, career guidance, and end-to-end support—from program selection to final admission and beyond.
                 </p>
-                <p>
-                  Today, we specialize in distance education, online degree programs, MBA courses, engineering programs, and international master's degrees. Our success is measured not just in numbers, but in the lives we've transformed and the careers we've helped launch.
+                <p className="leading-relaxed text-muted-foreground">
+                  Today, we specialize in distance education, online degree programs, MBA courses, engineering programs, and international master's degrees. Our success is measured not just in numbers, but in the <span className="text-accent font-semibold">lives we've transformed</span> and the careers we've helped launch.
                 </p>
+              </div>
+              <div className="mt-8 flex justify-center">
+                <a href="/apply" className="inline-block bg-gradient-to-r from-accent via-yellow-400 to-accent text-foreground hover:shadow-gold-glow font-bold px-10 py-4 text-lg rounded-full transition-all duration-300 hover:scale-110 animate-gradient-shift bg-[length:200%_200%]">
+                  Join Our Success Story
+                </a>
               </div>
             </div>
           </div>
         </section>
 
         {/* Mission, Vision, Values */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-20 bg-gradient-to-br from-primary/5 via-purple-50 to-blue-50">
           <div className="container px-4">
             <div className="grid md:grid-cols-3 gap-8">
-              {values.map((value, index) => (
-                <Card 
-                  key={value.title}
-                  className="p-8 text-center hover:shadow-premium transition-all duration-300 animate-slide-in-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                      <value.icon className="w-8 h-8 text-primary" />
+              {values.map((value, index) => {
+                const gradients = [
+                  "bg-gradient-to-br from-blue-500 to-purple-600",
+                  "bg-gradient-to-br from-purple-500 to-pink-600", 
+                  "bg-gradient-to-br from-blue-600 to-teal-500"
+                ];
+                const bgColors = [
+                  "bg-blue-50",
+                  "bg-purple-50",
+                  "bg-teal-50"
+                ];
+                return (
+                  <Card 
+                    key={value.title}
+                    className={`p-8 text-center hover:shadow-premium transition-all duration-300 hover:-translate-y-2 animate-slide-in-up border-2 ${bgColors[index]}`}
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="flex justify-center mb-6">
+                      <div className={`w-20 h-20 rounded-full ${gradients[index]} flex items-center justify-center shadow-lg`}>
+                        <value.icon className="w-10 h-10 text-white" />
+                      </div>
                     </div>
-                  </div>
-                  <h3 className="text-xl font-bold mb-4">{value.title}</h3>
-                  <p className="text-muted-foreground">{value.description}</p>
-                </Card>
-              ))}
+                    <h3 className="text-2xl font-bold mb-4">{value.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{value.description}</p>
+                  </Card>
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* Achievements */}
-        <section className="py-20">
+        <section className="py-20 bg-gradient-to-br from-white via-blue-50 to-purple-50">
           <div className="container px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Our Achievements</h2>
-            <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-4">
+            <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-6">
               {achievements.map((achievement, index) => (
                 <div 
                   key={index}
-                  className="flex items-start gap-3 animate-slide-in-up"
+                  className="flex items-start gap-3 animate-slide-in-up bg-white p-4 rounded-lg shadow-md hover:shadow-premium transition-all duration-300 hover:-translate-y-1 border-l-4 border-accent"
                   style={{ animationDelay: `${index * 0.05}s` }}
                 >
                   <CheckCircle className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-                  <span className="text-lg">{achievement}</span>
+                  <span className="text-lg font-medium">{achievement}</span>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
+        {/* Popular MS Programs */}
+        <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+          <div className="container px-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Popular MS Programs</h2>
+            <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              {[
+                { name: "MS in Computer Science & IT", color: "from-blue-500 to-cyan-500" },
+                { name: "MS in Data Science & AI", color: "from-purple-500 to-pink-500" },
+                { name: "MS in Electrical Engineering", color: "from-orange-500 to-red-500" },
+                { name: "MS in Mechanical Engineering", color: "from-teal-500 to-green-500" },
+                { name: "MS in Civil Engineering", color: "from-indigo-500 to-blue-500" },
+                { name: "MS in Business Analytics", color: "from-yellow-500 to-orange-500" },
+                { name: "MS in Biotechnology", color: "from-green-500 to-emerald-500" },
+                { name: "MS in Environmental Science", color: "from-lime-500 to-green-600" },
+              ].map((program, index) => (
+                <Card 
+                  key={program.name}
+                  className="p-6 text-center hover:shadow-premium transition-all duration-300 hover:-translate-y-2 animate-slide-in-up border-0 bg-white relative overflow-hidden group"
+                  style={{ animationDelay: `${index * 0.05}s` }}
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${program.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+                  <div className={`w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-br ${program.color} flex items-center justify-center shadow-lg`}>
+                    <Award className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="font-bold text-foreground leading-tight">{program.name}</h3>
+                </Card>
+              ))}
+            </div>
+            <div className="mt-12 text-center">
+              <a href="/apply" className="inline-block bg-gradient-to-r from-primary via-blue-600 to-purple-700 text-white hover:shadow-glow font-bold px-10 py-4 text-lg rounded-full transition-all duration-300 hover:scale-110">
+                Apply Now
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* Accreditations */}
-        <section className="py-20 bg-primary text-white">
+        <section className="py-20 bg-gradient-to-br from-primary via-blue-700 to-purple-900 text-white">
           <div className="container px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Accreditations & Recognition</h2>
             <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
               {accreditations.map((accreditation, index) => (
                 <Card 
                   key={accreditation.name}
-                  className="p-6 text-center bg-white hover:shadow-premium transition-all duration-300 animate-slide-in-up"
+                  className="p-8 text-center bg-white hover:shadow-gold-glow transition-all duration-300 hover:-translate-y-2 animate-slide-in-up border-4 border-accent"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <img 
-                    src={accreditation.logo} 
-                    alt={accreditation.name}
-                    className="w-full h-20 object-contain mb-4"
-                  />
-                  <h3 className="font-bold text-foreground">{accreditation.name}</h3>
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-accent to-yellow-500 flex items-center justify-center shadow-lg">
+                    <Award className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="font-bold text-foreground text-lg">{accreditation.name}</h3>
                 </Card>
               ))}
             </div>

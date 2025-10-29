@@ -20,11 +20,19 @@ const features = [
 ];
 
 export const FeaturesSection = () => {
+  const gradients = [
+    { bg: "bg-gradient-to-br from-green-500 to-emerald-600", card: "bg-green-50 border-green-200" },
+    { bg: "bg-gradient-to-br from-blue-500 to-cyan-600", card: "bg-blue-50 border-blue-200" },
+    { bg: "bg-gradient-to-br from-purple-500 to-pink-600", card: "bg-purple-50 border-purple-200" },
+  ];
+
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
       <div className="container px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose GoldCan Education?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary via-purple-600 to-accent bg-clip-text text-transparent">
+            Why Choose GoldCan Education?
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             We provide comprehensive support and guidance to help you achieve your educational goals
           </p>
@@ -34,16 +42,16 @@ export const FeaturesSection = () => {
           {features.map((feature, index) => (
             <Card 
               key={feature.title}
-              className="p-8 text-center hover:shadow-premium transition-all duration-300 hover:-translate-y-2 animate-slide-in-up"
+              className={`p-8 text-center hover:shadow-premium transition-all duration-300 hover:-translate-y-2 animate-slide-in-up border-2 ${gradients[index].card}`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                  <feature.icon className="w-8 h-8 text-primary" />
+                <div className={`w-20 h-20 rounded-full ${gradients[index].bg} flex items-center justify-center shadow-lg animate-float`}>
+                  <feature.icon className="w-10 h-10 text-white" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-              <p className="text-muted-foreground">{feature.description}</p>
+              <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
             </Card>
           ))}
         </div>
