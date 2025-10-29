@@ -6,6 +6,8 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Clock, IndianRupee, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import mbaProgram from "@/assets/mba-program.jpg";
+import bangaloreSkyline from "@/assets/bangalore-skyline.jpg";
 
 const MBABangalore = () => {
   const programs = [
@@ -69,24 +71,24 @@ const MBABangalore = () => {
       <Navigation />
       <main className="pt-20">
         {/* Hero Section */}
-        <section 
-          className="relative py-20 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=600&fit=crop')",
-          }}
-        >
-          <div className="absolute inset-0 bg-primary/85" />
+		<section 
+			className="relative py-20 bg-cover bg-center"
+			style={{
+				backgroundImage: `url(${mbaProgram})`,
+			}}
+		>
+			<div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-purple-900/90 to-primary/95" />
           <div className="container px-4 relative z-10">
             <div className="max-w-3xl mx-auto text-center text-white">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Top Distance & Online MBA Programs in Bangalore</h1>
               <p className="text-xl text-white/90 mb-8">
                 Advance your career with industry-recognized MBA programs from UGC-approved universities. Study at your own pace without compromising on quality.
               </p>
-              <Link to="/apply">
-                <Button size="lg" className="bg-accent text-foreground hover:bg-accent/90 font-semibold px-8">
-                  Apply Now
-                </Button>
-              </Link>
+				<Link to="/apply">
+					<Button size="lg" className="bg-gradient-to-r from-accent via-yellow-400 to-accent text-foreground hover:shadow-gold-glow font-bold px-8 rounded-full transition-all duration-300 hover:scale-110 animate-gradient-shift bg-[length:200%_200%]">
+						Apply Now
+					</Button>
+				</Link>
             </div>
           </div>
         </section>

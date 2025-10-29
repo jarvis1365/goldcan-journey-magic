@@ -1,38 +1,46 @@
 import { ProgramCard } from "./ProgramCard";
-import { Briefcase, GraduationCap, Globe } from "lucide-react";
+import { Briefcase, Code, Globe } from "lucide-react";
+import mbaProgram from "@/assets/mba-program.jpg";
+import engineeringLab from "@/assets/engineering-lab.jpg";
+import internationalUniversity from "@/assets/international-university.jpg";
 
 const programs = [
   {
     title: "MBA in Bangalore",
-    description: "Pursue your Master of Business Administration from top-ranked universities in Bangalore. Gain practical business insights, leadership skills, and networking opportunities that propel your career forward.",
+    description: "Advance your career with distance and online MBA programs from top UGC-approved universities. Study while you work with flexible schedules and industry-relevant curriculum.",
     icon: Briefcase,
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
-    link: "#mba",
+    image: mbaProgram,
+    link: "/mba-bangalore",
   },
   {
     title: "Engineering in Bangalore",
-    description: "Explore cutting-edge engineering programs in India's Silicon Valley. From computer science to mechanical engineering, get hands-on experience with the latest technology and industry partnerships.",
-    icon: GraduationCap,
-    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&h=600&fit=crop",
-    link: "#education",
+    description: "Pursue B.Tech and engineering degrees in India's Silicon Valley. Access world-class facilities, expert faculty, and excellent placement opportunities in top tech companies.",
+    icon: Code,
+    image: engineeringLab,
+    link: "/education-bangalore",
   },
   {
     title: "Masters Abroad",
-    description: "Study at prestigious universities worldwide including USA, UK, Canada, and Australia. We guide you through admissions, scholarships, and visa processes for a seamless international education experience.",
+    description: "Study MS programs at prestigious universities in USA, UK, Canada, and Germany. Get comprehensive support for admissions, visas, scholarships, and career guidance.",
     icon: Globe,
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop",
-    link: "#abroad",
+    image: internationalUniversity,
+    link: "/ms-abroad",
   },
 ];
 
 export const Programs = () => {
   return (
-    <section className="py-24" id="programs">
-      <div className="container px-4">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold">Our Programs</h2>
+    <section className="py-24 relative overflow-hidden" id="programs">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50" />
+      <div className="absolute inset-0 bg-grid-slate-200/50 bg-[size:30px_30px]" />
+      
+      <div className="container px-4 relative z-10">
+        <div className="text-center mb-16 space-y-4 animate-slide-in-up">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-purple-600 to-primary bg-clip-text text-transparent">
+            Our Premium Programs
+          </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Discover world-class educational opportunities tailored to your ambitions
+            Choose from our carefully curated education programs designed to accelerate your career growth
           </p>
         </div>
 
@@ -40,8 +48,8 @@ export const Programs = () => {
           {programs.map((program, index) => (
             <div
               key={program.title}
-              className="animate-fade-in"
-              style={{ animationDelay: `${index * 0.2}s` }}
+              className="animate-slide-in-up"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <ProgramCard {...program} />
             </div>

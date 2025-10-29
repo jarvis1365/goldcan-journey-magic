@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Download } from "lucide-react";
 import { Link } from "react-router-dom";
+import heroStudents from "@/assets/hero-students.jpg";
 
 export const Hero = () => {
   return (
@@ -8,10 +9,10 @@ export const Hero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&h=1080&fit=crop')",
+          backgroundImage: `url(${heroStudents})`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-purple-900/90" />
       </div>
       
       <div className="container relative z-10 px-4">
@@ -32,12 +33,12 @@ export const Hero = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <Link to="/apply">
-              <Button size="lg" className="bg-accent text-foreground hover:bg-accent/90 font-semibold px-8 transition-all duration-300 hover:shadow-xl hover:scale-105">
+              <Button size="lg" className="relative bg-gradient-to-r from-accent via-yellow-400 to-accent text-foreground hover:shadow-gold-glow font-bold px-10 py-6 text-lg rounded-full transition-all duration-300 hover:scale-110 animate-gradient-shift bg-[length:200%_200%]">
                 Apply Now
                 <GraduationCap className="w-5 h-5 ml-2" />
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="bg-white/10 text-white border-white hover:bg-white hover:text-primary font-semibold px-8 transition-all duration-300">
+            <Button size="lg" className="relative bg-white/10 text-white border-2 border-white backdrop-blur-sm hover:bg-white hover:text-primary font-bold px-10 py-6 text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-glow">
               Download Brochure
               <Download className="w-5 h-5 ml-2" />
             </Button>

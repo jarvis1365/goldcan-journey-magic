@@ -88,8 +88,8 @@ export default {
           "50%": { transform: "translateY(-20px)" },
         },
         glow: {
-          "0%, 100%": { opacity: "0.5" },
-          "50%": { opacity: "1" },
+          "0%, 100%": { opacity: "1", boxShadow: "0 0 20px currentColor" },
+          "50%": { opacity: "0.8", boxShadow: "0 0 40px currentColor" },
         },
         "slide-in-up": {
           from: { opacity: "0", transform: "translateY(30px)" },
@@ -99,6 +99,10 @@ export default {
           from: { opacity: "0" },
           to: { opacity: "1" },
         },
+        "gradient-shift": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -107,6 +111,12 @@ export default {
         glow: "glow 2s ease-in-out infinite",
         "slide-in-up": "slide-in-up 0.6s ease-out",
         "fade-in": "fade-in 0.8s ease-out",
+        "gradient-shift": "gradient-shift 3s ease infinite",
+      },
+      boxShadow: {
+        premium: "0 20px 60px -20px rgba(26, 115, 232, 0.35)",
+        glow: "0 0 30px rgba(26, 115, 232, 0.4)",
+        "gold-glow": "0 0 30px rgba(255, 193, 7, 0.5)",
       },
     },
   },

@@ -4,6 +4,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { FloatingApplyButton } from "@/components/FloatingApplyButton";
 import { Card } from "@/components/ui/card";
 import { Building2, Users, GraduationCap, TrendingUp } from "lucide-react";
+import bangaloreSkyline from "@/assets/bangalore-skyline.jpg";
 
 const EducationBangalore = () => {
   const universities = [
@@ -61,13 +62,13 @@ const EducationBangalore = () => {
       <Navigation />
       <main className="pt-20">
         {/* Hero Section */}
-        <section 
-          className="relative py-20 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=1920&h=600&fit=crop')",
-          }}
-        >
-          <div className="absolute inset-0 bg-primary/85" />
+		<section 
+			className="relative py-20 bg-cover bg-center"
+			style={{
+				backgroundImage: `url(${bangaloreSkyline})`,
+			}}
+		>
+			<div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-purple-900/90 to-primary/95" />
           <div className="container px-4 relative z-10">
             <div className="max-w-3xl mx-auto text-center text-white">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Education in Bangalore</h1>
@@ -113,21 +114,21 @@ const EducationBangalore = () => {
           <div className="container px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Why Study in Bangalore?</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {benefits.map((benefit, index) => (
-                <Card 
-                  key={benefit.title}
-                  className="p-6 text-center hover:shadow-premium transition-all duration-300 animate-slide-in-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                      <benefit.icon className="w-8 h-8 text-primary" />
-                    </div>
-                  </div>
-                  <h3 className="font-bold text-lg mb-3">{benefit.title}</h3>
-                  <p className="text-sm text-muted-foreground">{benefit.description}</p>
-                </Card>
-              ))}
+				{benefits.map((benefit, index) => (
+					<Card 
+						key={benefit.title}
+						className="p-8 text-center hover:shadow-premium hover:-translate-y-2 transition-all duration-500 animate-slide-in-up bg-gradient-to-br from-white to-blue-50/50 border-0 rounded-2xl group"
+						style={{ animationDelay: `${index * 0.1}s` }}
+					>
+						<div className="flex justify-center mb-6">
+							<div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform duration-300">
+								<benefit.icon className="w-10 h-10 text-white" />
+							</div>
+						</div>
+						<h3 className="font-bold text-xl mb-4 text-primary">{benefit.title}</h3>
+						<p className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
+					</Card>
+				))}
             </div>
           </div>
         </section>

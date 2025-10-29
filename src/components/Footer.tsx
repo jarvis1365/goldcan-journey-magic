@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Mail, MapPin, Phone, Facebook, Twitter, Linkedin, Instagram, GraduationCap } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const Footer = () => {
@@ -19,32 +19,35 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="bg-primary text-white py-16">
-      <div className="container px-4">
+    <footer className="relative bg-gradient-to-br from-slate-900 via-primary to-purple-900 text-white py-16 overflow-hidden">
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:20px_20px]" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+      
+      <div className="container px-4 relative z-10">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
-                <span className="text-foreground font-bold text-xl">G</span>
+            <div className="flex items-center gap-2 group">
+              <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center shadow-gold-glow group-hover:scale-110 transition-transform duration-300">
+                <GraduationCap className="w-6 h-6 text-foreground" />
               </div>
-              <span className="text-xl font-bold">GoldCan Education</span>
+              <span className="text-2xl font-bold">GoldCan Education</span>
             </div>
-            <p className="text-white/80 text-sm">
+            <p className="text-white/80 text-sm leading-relaxed">
               Empowering students to achieve their educational dreams since 2012. 
               Your trusted partner for quality education and career success.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-bold mb-4 text-accent">Quick Links</h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-white/80 hover:text-accent transition-colors duration-300 text-sm hover:translate-x-1 inline-block"
+                    className="text-white/80 hover:text-accent transition-all duration-300 text-sm hover:translate-x-1 inline-block"
                   >
-                    {link.name}
+                    → {link.name}
                   </Link>
                 </li>
               ))}
@@ -52,39 +55,39 @@ export const Footer = () => {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-lg font-bold mb-4">Contact Info</h3>
+            <h3 className="text-lg font-bold mb-4 text-accent">Contact Info</h3>
             <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 mt-1 text-accent flex-shrink-0" />
+              <div className="flex items-start gap-3 group">
+                <MapPin className="w-5 h-5 mt-1 text-accent flex-shrink-0 group-hover:scale-110 transition-transform" />
                 <span className="text-white/80 text-sm">GoldCan Education Headquarters, MG Road, Bangalore, Karnataka, India</span>
               </div>
-              <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-accent flex-shrink-0" />
+              <div className="flex items-center gap-3 group">
+                <Phone className="w-5 h-5 text-accent flex-shrink-0 group-hover:scale-110 transition-transform" />
                 <span className="text-white/80 text-sm">+91-9663817429</span>
               </div>
-              <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-accent flex-shrink-0" />
+              <div className="flex items-center gap-3 group">
+                <Mail className="w-5 h-5 text-accent flex-shrink-0 group-hover:scale-110 transition-transform" />
                 <span className="text-white/80 text-sm">info@goldcaneducation.com</span>
               </div>
             </div>
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-lg font-bold mb-4">Follow Us</h3>
+            <h3 className="text-lg font-bold mb-4 text-accent">Follow Us</h3>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-accent flex items-center justify-center transition-all duration-300 hover:scale-110"
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-accent flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-gold-glow"
                 >
                   <social.icon className="w-5 h-5" />
                 </a>
               ))}
             </div>
             <Link to="/apply" className="block">
-              <button className="mt-4 w-full bg-accent text-foreground font-semibold py-2 px-4 rounded-lg hover:bg-accent/90 transition-colors">
+              <button className="mt-4 w-full bg-gradient-to-r from-accent via-yellow-400 to-accent text-foreground font-bold py-3 px-4 rounded-full hover:shadow-gold-glow transition-all duration-300 hover:scale-105 animate-gradient-shift bg-[length:200%_200%]">
                 Apply Now
               </button>
             </Link>
